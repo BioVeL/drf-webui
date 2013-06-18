@@ -1,0 +1,41 @@
+/** Add css rules here for your application. */
+
+
+/** Example rules used by the template application (remove for your app) */
+/** Most GWT widgets already have a style name defined */
+/** Set ids using widget.getElement().setId("idOfElement") */
+.biovel-header-label {
+	color: #000099;
+	font-size: 18px;
+	font-family: sans-serif;
+	font-weight: bolder;
+}
+.biovel-radiobutton {
+	color: royalblue;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+.biovel-table-label {
+	color: dodgerblue;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: bolder;
+}
+.biovel-ext-link {
+	color: #00009b;
+	text-decoration: underline;
+	cursor: hand;
+}
+.GPBYFDEGE {
+}
+.GPBYFDEGE-new {
+}
+.clickable-cell-table {
+}
+.biovel-output-link {
+	color: #0C044F;
+	font-size: 18px;
+	font-weight: bolder;
+	cursor: hand;
+}

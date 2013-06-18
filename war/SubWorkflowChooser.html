@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>SubWorkflowChooser</title>
+    <script type="text/javascript" language="javascript" src="subworkflowchooser/subworkflowchooser.nocache.js"></script>
+    <script type="text/javascript" language="javascript" src="js/pmrpc.js"></script>
+    <link rel="stylesheet" href="css/DRFWebUI.css">    
+    <script>     
+         function setTitle() {
+           pmrpc.call({
+             destination : 'publish',
+             publicProcedureName : 'setTitle',
+             params : ['Choose Sub-Workflow'],
+            });
+           return true;
+         }
+
+         window.onload = setTitle;
+       </script>
+  </head>
+
+  <body>
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+
+  </body>
+</html>

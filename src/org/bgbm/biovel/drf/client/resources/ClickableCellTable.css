@@ -1,0 +1,31 @@
+@CHARSET "ISO-8859-1";
+
+@def selectionBorderWidth 2px;
+.cellTableCell { 
+    height: 35px; 
+    cursor: pointer; 
+    padding: 2px 25px; 
+} 
+.cellTableEvenRow { 
+	background: #fffaf0; 
+	font-size:12px; 
+} 
+
+.cellTableOddRow { 
+    background: #fff8e8; 
+}
+
+.cellTableSelectedRow {
+  background: #628cd5;
+  color: white;
+  height: auto;
+  overflow: auto;
+}
+
+.cellTableSelectedRowCell {
+  border: selectionBorderWidth solid #628cd5;
+}
+
+.cellTableHoveredRowCell {  
+  text-decoration:underline;
+}
