@@ -17,7 +17,7 @@
 	<inherits name="name.pehl.totoe.xml.XML" />
 	<!-- Specify the app entry point class.                         -->
 
-	
+
 	<!-- Specify the paths for translatable code                    -->
 	<source path='client' />
 	<source path='client/data' />
@@ -28,5 +28,7 @@
 	<source path='shared' />
 
 	<stylesheet src="DRFWebUI.css" />
-	<entry-point class="org.bgbm.biovel.drf.client.ui.TaxonomicChecklistChooser" />
+	<entry-point
+		class="org.bgbm.biovel.drf.client.ui.TaxonomicChecklistChooser" />
+<!-- 	<set-property name="user.agent" value="gecko1_8"></set-property> -->
 </module>

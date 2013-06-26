@@ -31,4 +31,5 @@
 	<stylesheet src="DRFWebUI.css" />
 	
 	<entry-point class="org.bgbm.biovel.drf.client.ui.TaxonomicConceptChooser" />
+<!-- 		<set-property name="user.agent" value="gecko1_8"></set-property> -->
 </module>

@@ -42,7 +42,7 @@ public class TaxonomicConceptChooserJS extends PmrpcJS {
      		params : [],
       		onSuccess : function(retVal) {      				
         		$wnd.synreqres = retVal.returnValue.synreqres_list;          
-        		//$wnd.alert($wnd.synreqres); 			
+        		$wnd.alert($wnd.synreqres); 			
         		$wnd.test();        			        		        			      			             
       		},
       		onFailure : function() {        

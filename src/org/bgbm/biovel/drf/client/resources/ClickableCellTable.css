@@ -2,7 +2,7 @@
 
 @def selectionBorderWidth 2px;
 .cellTableCell { 
-    height: 35px; 
+    height: 25px; 
     cursor: pointer; 
     padding: 2px 25px; 
 } 
@@ -27,5 +27,5 @@
 }
 
 .cellTableHoveredRowCell {  
-  text-decoration:underline;
+
 }

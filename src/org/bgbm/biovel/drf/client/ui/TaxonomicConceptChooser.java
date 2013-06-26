@@ -51,7 +51,7 @@ public class TaxonomicConceptChooser implements EntryPoint {
 	@Override
 	public void onModuleLoad() {
 		TaxonomicConceptChooserJS.init();
-		initComponents();
+		//initComponents();
 		//SciName sn1 = new SciName();
 		//sn1.name = "sci name 1";
 		//addNewTab("NEW",null,null);

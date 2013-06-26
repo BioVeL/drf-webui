@@ -177,4 +177,5 @@ public class PmrpcJS extends JavaScriptObject {
 	  public final native void setJSON(JavaScriptObject json) /*-{ this.json = json;	}-*/;
 	  public final native void setJSONStr(String jsonStr) /*-{ this.json = eval('(' + jsonStr + ')');	}-*/;
 	  public final native JavaScriptObject getJSON() /*-{ return this.json; }-*/;
+	  public final native String getJSONStr() /*-{ return new JSONObject(this.json).toString(); }-*/;
 }
