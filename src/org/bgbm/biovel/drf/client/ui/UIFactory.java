@@ -12,6 +12,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -98,6 +99,27 @@ public class UIFactory {
 				popupPanel.show();
 			}
 		};
+	}
+	
+	public static PopupPanel creatLoadingPopup(String text) {
+		PopupPanel popupPanel = new PopupPanel();
+		popupPanel.setGlassEnabled(true);
+		popupPanel.setSize("800px", "359px");
+		
+		VerticalPanel verticalPanel = new VerticalPanel();
+		verticalPanel.setSpacing(10);
+		popupPanel.setWidget(verticalPanel);
+		verticalPanel.setSize("424px", "341px");
+		
+		Image image = new Image("filesaver/gwt/standard/images/loading.gif");
+		verticalPanel.add(image);
+		image.setSize("400px", "400px");
+		
+		Label lblMsg = new Label(text);
+		verticalPanel.add(lblMsg);
+		lblMsg.setHeight("30");
+		
+		return popupPanel;
 	}
 
 }

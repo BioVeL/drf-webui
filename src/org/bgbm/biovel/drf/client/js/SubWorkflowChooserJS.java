@@ -15,16 +15,19 @@ public class SubWorkflowChooserJS extends PmrpcJS {
   		this.dataSelectionShouldRun = [];
   		this.endWorkflowShouldRun = [];
   		this.endWorkflow = false;
+  		this.refineHost = "127.0.0.1:3333";
   	}-*/;
   // JSNI methods to set options
   public final native void setTnrocShouldRun() /*-{ this.tnrocShouldRun = ["shouldRun"]; }-*/; 
   public final native void setDataQualityShouldRun() /*-{ this.dataQualityShouldRun = ["shouldRun"]; }-*/;
+  public final native void setRefineHost(String host) /*-{ this.refineHost = host; }-*/;
   public final native void setDataSelectionShouldRun() /*-{ this.dataSelectionShouldRun = ["shouldRun"]; }-*/;
   public final native void setEndWorkflowShouldRun() /*-{ this.endWorkflowShouldRun = ["shouldRun"]; this.endWorkflow = true;}-*/;
   
   // JSNI methods to get options
   public final native JsArray getTnrocShouldRun() /*-{ return this.tnrocShouldRun; }-*/; 
   public final native JsArray getDataQualityShouldRun() /*-{ return this.dataQualityShouldRun; }-*/;
+  public final native String getRefineHost() /*-{ return this.refineHost; }-*/;
   public final native JsArray getDataSelectionShouldRun() /*-{ return this.dataSelectionShouldRun; }-*/;
   public final native JsArray getEndWorkflowShouldRun() /*-{ return this.endWorkflowShouldRun; }-*/;
   public final native boolean getEndWorkflow() /*-{ return this.endWorkflow; }-*/;

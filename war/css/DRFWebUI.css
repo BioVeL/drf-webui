@@ -11,7 +11,7 @@
 	font-weight: bolder;
 }
 .biovel-radiobutton {
-	color: royalblue;
+	color: #333333;
 	font-size: 16px;
 	font-family: sans-serif;
 	font-weight: bold;
@@ -38,4 +38,13 @@
 	font-size: 18px;
 	font-weight: bolder;
 	cursor: hand;
+}
+.clickable-html {
+	cursor: hand;
+}
+.biovel-label {
+	color: #333333;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: bold;
 }
