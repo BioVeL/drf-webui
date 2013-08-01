@@ -25,6 +25,8 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.widget.client.TextButton;
 import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.ScrollPanel;
 
 
 public class SubWorkflowChooser implements EntryPoint {
@@ -75,7 +77,7 @@ public class SubWorkflowChooser implements EntryPoint {
 		flexTable.setWidget(2, 0, txtbtnOk);		
 		
 		statusVPanel = new VerticalPanel();
-		rootPanel.add(statusVPanel, 40, 313);
+		rootPanel.add(statusVPanel, 74, 471);
 		verticalPanel.setCellHorizontalAlignment(statusVPanel, HasHorizontalAlignment.ALIGN_CENTER);
 		statusVPanel.setSize("453px", "91px");
 		
@@ -84,7 +86,7 @@ public class SubWorkflowChooser implements EntryPoint {
 		statusVPanel.setCellHorizontalAlignment(image, HasHorizontalAlignment.ALIGN_CENTER);
 		verticalPanel.setCellHorizontalAlignment(image, HasHorizontalAlignment.ALIGN_CENTER);
 		
-		Grid grid = new Grid(4, 2);
+		Grid grid = new Grid(7, 2);
 		grid.setCellPadding(5);
 		verticalPanel.add(grid);
 		grid.setSize("577px", "145px");
@@ -100,32 +102,38 @@ public class SubWorkflowChooser implements EntryPoint {
 				tnrEditButton.setEnabled(false);
 				tnrEditButton.setHTML("<i class=\"icon-edit icon-large\"></i>");
 				tnrEditButton.setHeight("20");
-				
-						rdbtnDataQuality = new RadioButton("wfchooser", "Data Quality (Google Refine)");
-						grid.setWidget(1, 0, rdbtnDataQuality);
-						rdbtnDataQuality.setWidth("318px");
-						//newRefineErrorPopup("127:0.0..1:3333");
+						
+						HTML htmlNewHtml = new HTML("<div style=\"padding-left: 25px;\">Taxonomic Name Resolution requires the input data file to contain a column named 'nameComplete', as explained <a href=\"https://wiki.biovel.eu/display/doc/Preparing+your+input+data+for+Data+Refinement\">here</a>. Other columns (if present) will not be considered for the purposes of the workflow run. </div>", true);
+						htmlNewHtml.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
+						grid.setWidget(1, 0, htmlNewHtml);
+						
+								rdbtnDataQuality = new RadioButton("wfchooser", "Data Quality (Google Refine)");
+								grid.setWidget(2, 0, rdbtnDataQuality);
+								rdbtnDataQuality.setWidth("318px");
+								//newRefineErrorPopup("127:0.0..1:3333");
 
-						rdbtnDataQuality.setStyleName("biovel-radiobutton");
+								rdbtnDataQuality.setStyleName("biovel-radiobutton");
 						
-						final PushButton dqEditButton = new PushButton("");
-						grid.setWidget(1, 1, dqEditButton);
+						HTML htmlThePossibilitiesFor = new HTML("<div style=\"padding-left: 25px;\">The possibilities for improving the quality of data are flexible and depend on the content of the input data file. As long as the file contains at least one named column of data the workflow will run. </div>", true);
+						grid.setWidget(3, 0, htmlThePossibilitiesFor);
 						
-								dqEditButton.setHTML("<i class=\"icon-edit icon-large\"></i>");
-								dqEditButton.setHeight("20");
-								rdbtnDataSelection = new RadioButton("wfchooser", "Data Selection (BioSTIF)");
-								grid.setWidget(2, 0, rdbtnDataSelection);
-								
-										rdbtnDataSelection.setStyleName("biovel-radiobutton");
+
+						rdbtnDataSelection = new RadioButton("wfchooser", "Data Selection (BioSTIF)");
+						grid.setWidget(4, 0, rdbtnDataSelection);
+						
+								rdbtnDataSelection.setStyleName("biovel-radiobutton");
 										
 										final PushButton dsEditButton = new PushButton("");
-										grid.setWidget(2, 1, dsEditButton);
+										grid.setWidget(4, 1, dsEditButton);
 										dsEditButton.setEnabled(false);
 										dsEditButton.setHTML("<i class=\"icon-edit icon-large\"></i>");
 										dsEditButton.setHeight("20");
 										
+										HTML htmlBiostifRequiresThe = new HTML("<div style=\"padding-left: 25px;\">Geographical Data Selection (BioSTIF) requires the input data file to contain columns named 'decimalLatitude' and 'decimalLongitude' with valid coordinates, as explained <a href=\"https://wiki.biovel.eu/display/doc/Preparing+your+input+data+for+Data+Refinement\">here</a>. Do not select this option if your data file does not contain this information. </div>", true);
+										grid.setWidget(5, 0, htmlBiostifRequiresThe);
+										
 												rdbtnEndWorkflow = new RadioButton("wfchooser", "End Workflow");
-												grid.setWidget(3, 0, rdbtnEndWorkflow);
+												grid.setWidget(6, 0, rdbtnEndWorkflow);
 												rdbtnEndWorkflow.setValue(true);
 												rdbtnEndWorkflow.setStyleName("biovel-radiobutton");
 												rdbtnEndWorkflow.setHTML("End Workflow");
@@ -169,7 +177,18 @@ public class SubWorkflowChooser implements EntryPoint {
 		
 		final TextBox refineIPTBox = new TextBox();
 		refineGrid.setWidget(0, 1, refineIPTBox);
-		refineIPTBox.setText("127.0.0.1");
+		refineHost = "127.0.0.1";
+		//Window.alert("parent url : " + Document.get().getReferrer());
+		String parentUrl = Document.get().getReferrer();
+		//String parentUrl = "http://localhost:8080/interaction/interaction2e01ce7a540945e7bb490733c20e9247.html";
+		if(parentUrl.equals("")) {		
+			refineHost = Window.Location.getHostName();
+		} else {						
+			String pattern = "^http://([^:]+):([^/]+)/(.*?)$";
+			refineHost = parentUrl.replaceAll(pattern, "$1"); 				
+		}	
+		//Window.alert("host : " + refineHost);					
+		refineIPTBox.setText(refineHost);
 		refineIPTBox.setHeight("30");
 		
 		Label portLabel = new Label("Port : ");
@@ -179,33 +198,32 @@ public class SubWorkflowChooser implements EntryPoint {
 		
 		final TextBox refinePortTBox = new TextBox();
 		refineGrid.setWidget(1, 1, refinePortTBox);
-		refinePortTBox.setText("3333");
+		refinePort = "3333";
+		refinePortTBox.setText(refinePort);
 		
-		dqEditButton.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				if(settingsVisible) {
-					settingsPanel.setVisible(false);
-				} else {
-					//Window.alert("parent url : " + Document.get().getReferrer());
-					String parentUrl = Document.get().getReferrer();
-					//String parentUrl = "http://localhost:8080/interaction/interaction2e01ce7a540945e7bb490733c20e9247.html";
-					refineHost = "";
-					if(parentUrl.equals("")) {		
-						refineHost = Window.Location.getHostName();
-					} else {						
-						String pattern = "^http://([^:]+):([^/]+)/(.*?)$";
-						refineHost = parentUrl.replaceAll(pattern, "$1"); 
-						//Window.alert("host : " + refineHost);						
-					}	
-					refineIPTBox.setText(refineHost);
-					
-					settingsPanel.setVisible(true);
-					refinePanel.setVisible(true);
-					settingsPanel.setCaptionText("Data Quality Settings");
-				}
-				settingsVisible = !settingsVisible;
-			}
-		});
+		final PushButton dqEditButton = new PushButton("");
+		grid.setWidget(2, 1, dqEditButton);
+		
+				dqEditButton.setHTML("<i class=\"icon-edit icon-large\"></i>");
+				dqEditButton.setHeight("20");
+				
+				
+				dqEditButton.addClickHandler(new ClickHandler() {
+					public void onClick(ClickEvent event) {
+						if(settingsVisible) {
+							refineHost = refineIPTBox.getText();
+							refinePort = refinePortTBox.getText();
+							settingsPanel.setVisible(false);
+						} else {
+							refineIPTBox.setText(refineHost);	
+							refinePortTBox.setText(refinePort);
+							settingsPanel.setVisible(true);
+							refinePanel.setVisible(true);
+							settingsPanel.setCaptionText("Data Quality Settings");
+						}
+						settingsVisible = !settingsVisible;
+					}
+				});
 		
 		txtbtnOk.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -214,7 +232,7 @@ public class SubWorkflowChooser implements EntryPoint {
 					reply();
 				}
 				
-				if(rdbtnDataQuality.getValue()) {
+				if(rdbtnDataQuality.getValue()) {			
 					refineHost = refineIPTBox.getText();
 					refinePort = refinePortTBox.getText();
 					String imageUrl = "http://" + refineHost + ":" + refinePort + "/extension/biovel/resources/images/biovel.jpg";
@@ -247,7 +265,9 @@ public class SubWorkflowChooser implements EntryPoint {
 			swcjs.setTnrocShouldRun();
 		}
 		if(rdbtnDataQuality.getValue()) {			
-			swcjs.setDataQualityShouldRun();			
+			swcjs.setDataQualityShouldRun();	
+			//Window.alert("host : " + refineHost + ":" + refinePort);					
+			swcjs.setRefineHost(refineHost  + ":" + refinePort);			
 		}
 		if(rdbtnDataSelection.getValue()) {
 			swcjs.setDataSelectionShouldRun();
@@ -293,7 +313,7 @@ public class SubWorkflowChooser implements EntryPoint {
 		lblWikiPage.setStyleName("biovel-ext-link");
 		lblWikiPage.setHref("https://wiki.biovel.eu/display/doc/Installing+and+running+DR+Workflow+on+Taverna+Workbench");
 		
-		Label lblTavernaLite = new Label("If the workflow is being executed on a Taverna Lite installation please contact support@biovel.eu");
+		Label lblTavernaLite = new Label("If the workflow is being executed on a BioVeL Portal installation please contact support@biovel.eu");
 		errRefineVPanel.add(lblTavernaLite);
 		TextButton errtxtbtnClose = new TextButton("OK");
 		errRefineVPanel.add(errtxtbtnClose);
