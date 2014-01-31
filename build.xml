@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <project name="DRFWebUI" basedir="." default="war">
 
-    <property name="gwt.module.name" value="com.rubiconred.buildtutorial.BuildTutorial"/>    
-    <property name="jar.name" value="buildtutorial.jar"/>
-    <property name="war.name" value="buildtutorial.war"/>
+    <property name="gwt.module.name" value="org.bgbm.biovel.drf.SubWorkflowChooser"/>    
     <property name="src.dir" location="src"/>    
     <property name="build.dir" location="build"/>        
     <property name="lib.dir" location="lib"/>

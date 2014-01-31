@@ -132,7 +132,7 @@ public class TaxonomicConceptChooser implements EntryPoint {
 		horizontalPanel.add(tabPanel);
 		tabPanel.setSize("462px", "");
 
-		TextButton txtbtnRetrievegbifSpecies = new TextButton("Retrieve (GBIF) species occurrence data");
+		TextButton txtbtnRetrievegbifSpecies = new TextButton("Retrieve species occurrence data");
 
 
 		txtbtnRetrievegbifSpecies.addClickHandler(new ClickHandler() {

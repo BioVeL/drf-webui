@@ -10,20 +10,20 @@ import com.google.gwt.user.client.Window;
 
 
 
-public class TaxonomicChecklistChooserJS extends PmrpcJS {                             
+public class TaxoServiceProviderChooserJS extends PmrpcJS {                             
   // Overlay types always have protected, zero argument constructors.
-  protected TaxonomicChecklistChooserJS() {}                                             
+  protected TaxoServiceProviderChooserJS() {}                                             
    
-  public final native void setChosenChecklists(JsArrayString cijsarray) /*-{   	  	
-	this.chosenChecklists = cijsarray; 
+  public final native void setChosenServices(JsArrayString cijsarray) /*-{   	  	
+	this.chosenServices = cijsarray; 
   }-*/;
   
-  public final native JsArrayString getChosenChecklists() /*-{   	  	
-	return this.chosenChecklists;
+  public final native JsArrayString getChosenServices() /*-{   	  	
+	return this.chosenServices;
   }-*/;
   
-  public final native JsArray<ChecklistInfoJS> getAllChecklists() /*-{   	  	
-  		return $wnd.allChecklists; 
+  public final native JsArray<ChecklistInfoJS> getAllServices() /*-{   	  	
+  		return $wnd.allServices; 
   }-*/;
   
  
@@ -31,7 +31,7 @@ public class TaxonomicChecklistChooserJS extends PmrpcJS {
 
   public static native boolean init() /*-{ 
 		this.chosenChecklists = [];
-  		$wnd.initComponents =  $entry(@org.bgbm.biovel.drf.client.ui.TaxonomicChecklistChooser::initComponents());  		
+  		$wnd.initComponents =  $entry(@org.bgbm.biovel.drf.client.ui.TaxoServiceProviderChooser::initComponents());  		
   		$wnd.pmrpc.call({
       		destination : 'publish',
       		publicProcedureName : 'setTitle',
@@ -43,7 +43,7 @@ public class TaxonomicChecklistChooserJS extends PmrpcJS {
      		params : [],
       		onSuccess : function(retVal) {      
       			
-        		$wnd.allChecklists = eval(retVal.returnValue.allChecklists);      
+        		$wnd.allServices = eval(retVal.returnValue.allServices);      
         		//$wnd.alert(retVal.returnValue.allChecklists);		 		       		            	
         		$wnd.initComponents();        			        		        			      			             
       		},
