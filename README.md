@@ -1,7 +1,7 @@
 
 Synopsis
 ========
-This project contains all the components required to run the [BioVeL Data Refinement Workflow](https://wiki.biovel.eu/display/doc/Data+Refinement+Workflow)
+This GWT-based project develops web interaction pages for the [BioVeL Data Refinement Workflow](https://wiki.biovel.eu/display/doc/Data+Refinement+Workflow)
 
 For more details regarding BioVeL, please visit [www.biovel.eu](www.biovel.eu)
 

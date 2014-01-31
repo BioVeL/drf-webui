@@ -1,10 +1,6 @@
 package org.bgbm.biovel.drf.client.ui;
 
-import java.net.MalformedURLException;
-
-
 import org.bgbm.biovel.drf.client.js.SubWorkflowChooserJS;
-import org.bgbm.biovel.drf.client.js.TaxoServiceProviderChooserJS;
 import org.bgbm.biovel.drf.client.utils.JSUtils;
 import org.bgbm.biovel.drf.client.widgets.ClickableLabel;
 
@@ -13,10 +9,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.CaptionPanel;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -29,9 +26,6 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.widget.client.TextButton;
-import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.ScrollPanel;
 
 
 public class SubWorkflowChooser implements EntryPoint {
@@ -64,7 +58,7 @@ public class SubWorkflowChooser implements EntryPoint {
 		rootPanel = RootPanel.get();
 		rootPanel.setSize("1024", "768");
 		
-		initComponents();		
+		//initComponents();		
 	}
 
 	public static void initComponents() {	
