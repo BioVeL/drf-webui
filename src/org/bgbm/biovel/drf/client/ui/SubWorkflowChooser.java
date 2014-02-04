@@ -57,7 +57,7 @@ public class SubWorkflowChooser implements EntryPoint {
 
 		rootPanel = RootPanel.get();
 		rootPanel.setSize("1024", "768");
-		
+		SubWorkflowChooserJS.initView();
 		//initComponents();		
 	}
 
@@ -194,14 +194,20 @@ public class SubWorkflowChooser implements EntryPoint {
 			localHost = getHost(parentUrl);			
 		}	
 		refineInteractionServer = localHost;
-		if(refineInteractionServer.endsWith("biovel.eu")) {
-			refineServer = "90.147.102.41";
-			refinePort = "80";
-		} else {
-			refineServer = "127.0.0.1";
-			refinePort = "3333";
-		}
-		//Window.alert("host : " + refineHost);					
+		//FIXME:test this for move to EGI server
+//		if(refineInteractionServer.endsWith("biovel.eu")) {			
+//			refineInteractionServer = "90.147.102.41";
+//			refineServer = "90.147.102.41";
+//			refinePort = "80";
+//		} else {
+//			refineServer = "127.0.0.1";
+//			refinePort = "3333";
+//		}
+		refineServer = "127.0.0.1";
+		refinePort = "3333";
+//		Window.alert("refineInteractionServer : " + refineInteractionServer + 
+//				" , refineServer : " + refineServer + 
+//				" , refinePort : " + refinePort);					
 		refineIPTBox.setText(refineInteractionServer);
 		refineIPTBox.setHeight("30");
 
@@ -249,11 +255,12 @@ public class SubWorkflowChooser implements EntryPoint {
 				if(rdbtnDataQuality.getValue()) {			
 					refineInteractionServer = refineIPTBox.getText();
 					refinePort = refinePortTBox.getText();
+					
 					if(refineInteractionServer.equals(localHost)) {
 						refineServer = "127.0.0.1";
 					} else {
 						refineServer = refineInteractionServer;
-					}
+					}					
 					String imageUrl = "http://" + refineInteractionServer + ":" + refinePort + "/extension/biovel/resources/images/biovel.jpg";
 					JSUtils.pingRefine(imageUrl);					
 					statusVPanel.setVisible(true);
@@ -291,9 +298,9 @@ public class SubWorkflowChooser implements EntryPoint {
 		}
 		if(rdbtnDataQuality.getValue()) {			
 			swcjs.setDataQualityShouldRun();	
-			Window.alert("refineInteractionServer : " + refineInteractionServer 
-					+ " , refineServer : " + refineServer 
-					+ " , refinePort : " + refinePort);					
+//			Window.alert("refineInteractionServer : " + refineInteractionServer 
+//					+ " , refineServer : " + refineServer 
+//					+ " , refinePort : " + refinePort);					
 			swcjs.setRefineHost(refineInteractionServer  + ":" + refinePort);		
 			swcjs.setRefineServer(refineServer);
 			swcjs.setRefinePort(refinePort);

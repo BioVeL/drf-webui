@@ -42,7 +42,7 @@ public class SubWorkflowChooserJS extends PmrpcJS {
   public final native boolean getEndWorkflow() /*-{ return this.endWorkflow; }-*/;
   public static native String getEmptyDataFlag() /*-{ return $wnd.emptydata; }-*/;
   
-  public static native boolean getInput() /*-{ 
+  public static native boolean initView() /*-{ 
 	
 	$wnd.callswc =  $entry(@org.bgbm.biovel.drf.client.ui.SubWorkflowChooser::initComponents());
 	$wnd.pmrpc.call({
