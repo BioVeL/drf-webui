@@ -254,7 +254,7 @@ public class TaxoServiceProviderChooser implements EntryPoint {
 		aggListFilterTBox.setWidth("254px");
 		aggListFilterTBox.setVisible(true);
 		
-		final CheckBox substringCBox = new CheckBox("substring");
+		final CheckBox substringCBox = new CheckBox("part of");
 		filterHPanel.add(substringCBox);
 		substringCBox.setWidth("72px");
 		
