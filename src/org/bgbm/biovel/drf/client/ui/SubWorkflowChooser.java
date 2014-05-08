@@ -184,27 +184,25 @@ public class SubWorkflowChooser implements EntryPoint {
 		final TextBox refineIPTBox = new TextBox();
 		refineGrid.setWidget(0, 1, refineIPTBox);
 		localHost = "127.0.0.1";
-		//Window.alert("parent url : " + Document.get().getReferrer());
+		
+		// Trying to deduce the server name
 		String parentUrl = Document.get().getReferrer();
-		//String parentUrl = "http://localhost:8080/interaction/interaction2e01ce7a540945e7bb490733c20e9247.html";
-		//parentUrl = "http://portal.at.biovel.eu:3333/runs/4";
-		if(parentUrl.equals("")) {		
+		if(parentUrl.equals("")) {					
 			localHost = Window.Location.getHostName();
 		} else {									
 			localHost = getHost(parentUrl);			
 		}	
 		refineInteractionServer = localHost;
 		//FIXME:test this for move to EGI server
-//		if(refineInteractionServer.endsWith("biovel.eu")) {			
-//			refineInteractionServer = "90.147.102.41";
-//			refineServer = "90.147.102.41";
-//			refinePort = "80";
-//		} else {
-//			refineServer = "127.0.0.1";
-//			refinePort = "3333";
-//		}
-		refineServer = "127.0.0.1";
-		refinePort = "3333";
+		if(refineInteractionServer.endsWith("biovel.eu")) {			
+			refineInteractionServer = "90.147.102.41";
+			refineServer = "90.147.102.41";
+			refinePort = "80";
+		} else {
+			refineServer = "127.0.0.1";
+			refinePort = "3333";
+		}
+
 //		Window.alert("refineInteractionServer : " + refineInteractionServer + 
 //				" , refineServer : " + refineServer + 
 //				" , refinePort : " + refinePort);					
