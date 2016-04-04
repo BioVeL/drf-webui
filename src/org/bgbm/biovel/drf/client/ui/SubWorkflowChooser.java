@@ -195,8 +195,8 @@ public class SubWorkflowChooser implements EntryPoint {
 		refineInteractionServer = localHost;
 		//FIXME:test this for move to EGI server
 		if(refineInteractionServer.endsWith("biovel.eu")) {			
-			refineInteractionServer = "90.147.102.41";
-			refineServer = "90.147.102.41";
+			refineInteractionServer = "refine.at.biovel.eu";
+			refineServer = "refine.at.biovel.eu";
 			refinePort = "80";
 		} else {
 			refineServer = "127.0.0.1";
@@ -205,7 +205,8 @@ public class SubWorkflowChooser implements EntryPoint {
 
 //		Window.alert("refineInteractionServer : " + refineInteractionServer + 
 //				" , refineServer : " + refineServer + 
-//				" , refinePort : " + refinePort);					
+//				" , refinePort : " + refinePort);	
+		
 		refineIPTBox.setText(refineInteractionServer);
 		refineIPTBox.setHeight("30");
 

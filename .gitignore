@@ -2,13 +2,8 @@
 build/
 gwt-unitCache/
 test-classes/
-war/WEB-INF/deploy
-war/WEB-INF/classes
-war/filesaver/
-war/inputchooser/
-war/subworkflowchooser/
-war/taxconceptchooser/
-war/taxoterviceproviderchooser/
+war
+bin
 
 # Other files and folders
 .settings/
